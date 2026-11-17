@@ -1,0 +1,12 @@
+{
+  "name": "k6-suite",
+  "version": "1.0.0",
+  "description": "API & Performance / Load Automation with Grafana k6",
+  "scripts": {
+    "test": "k6 run tests/api_load_test.js",
+    "test:quick": "k6 run --vus 5 --duration 10s tests/api_load_test.js"
+  },
+  "devDependencies": {
+    "@types/k6": "^0.54.0"
+  }
+}

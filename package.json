@@ -1,0 +1,12 @@
+{
+  "name": "qa-automation-lab",
+  "version": "1.0.0",
+  "description": "Multi-framework QA Automation Lab (Playwright, Selenium, k6)",
+  "scripts": {
+    "test:playwright": "npm --prefix playwright-suite test",
+    "test:playwright:report": "npx --prefix playwright-suite playwright show-report --host 0.0.0.0",
+    "test:selenium": "pytest -v --html=selenium-suite/report.html --self-contained-html",
+    "test:k6": "k6 run k6-suite/tests/api_load_test.js",
+    "test:all": "npm run test:playwright && npm run test:selenium && npm run test:k6"
+  }
+}
