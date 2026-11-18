@@ -17,10 +17,16 @@ qa-automation-lab/
 │   ├── settings.json       # Configured for Playwright Test Explorer & Pytest
 │   └── tasks.json          # Pre-configured 1-click execution tasks
 │
-├── playwright-suite/       # 1. Modern Web E2E (TypeScript)
+├── playwright-suite/       # 1. Modern Web E2E (JavaScript)
 │   ├── tests/
-│   │   └── todo_app.spec.ts
-│   ├── playwright.config.ts
+│   │   ├── ui/todo_app.spec.js
+│   │   └── api/             # Future API specs
+│   ├── pages/todo.page.js   # Locators and reusable browser actions
+│   ├── fixtures/test.js     # Test resource setup and lifecycle
+│   ├── test-data/todos.js   # Non-sensitive test inputs
+│   ├── utils/              # Helpers added as needed
+│   ├── .env.example        # Environment variable reference
+│   ├── playwright.config.js
 │   └── package.json
 │
 ├── selenium-suite/         # 2. Classic Web UI with Page Object Model (Python)
@@ -48,7 +54,7 @@ You can run any test suite directly from the workspace root:
 | Command | Action |
 | :--- | :--- |
 | `npm run test:all` | Runs all 3 test suites sequentially (Playwright, Selenium, k6) |
-| `npm run test:playwright` | Runs the Playwright TypeScript E2E suite |
+| `npm run test:playwright` | Runs the Playwright JavaScript E2E suite |
 | `npm run test:selenium` | Runs the Python Selenium POM suite + generates `report.html` |
 | `npm run test:k6` | Runs the k6 API load test with thresholds |
 
@@ -61,6 +67,17 @@ You can run any test suite directly from the workspace root:
 cd playwright-suite
 npm test
 ```
+The UI tests use an isolated browser context per test. Assertions live in
+`tests/ui/`, browser interactions in `pages/`, and shared setup in `fixtures/`.
+`tests/api/` and `utils/` are placeholders for future additions.
+
+The default target is the public TodoMVC demo. To override it with a compatible app:
+```bash
+BASE_URL=https://your-host/todomvc/ npm test
+```
+Keep the trailing slash. `.env.example` documents the variable; `.env` files
+are not loaded automatically. Reports and test results are excluded from Git.
+
 *View HTML test report:*
 ```bash
 npx playwright show-report --host 0.0.0.0

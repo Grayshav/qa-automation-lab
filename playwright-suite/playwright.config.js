@@ -11,6 +11,7 @@ export default defineConfig({
     ['list']
   ],
   use: {
+    baseURL: process.env.BASE_URL || 'https://demo.playwright.dev/todomvc/',
     headless: true,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
