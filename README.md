@@ -54,24 +54,7 @@ You can run any test suite directly from the workspace root:
 
 ---
 
-## 2. Using VS Code Server
-
-Open the **`qa-automation-lab`** directory in VS Code Server (`http://<server-ip>:8443` or through your tunnel/Tailscale):
-
-### A. Testing Sidebar (GUI Explorer)
-1. Click the **Flask / Testing** icon on the left Activity Bar (`Ctrl+Shift+T`).
-2. Playwright and Pytest tests are discovered automatically.
-3. Click the **Play** button beside any test or folder to run or debug it visually.
-
-### B. Command Palette Tasks
-Press `Ctrl+Shift+P` (or `Cmd+Shift+P`) -> select **Tasks: Run Task**:
-* `1. Run Playwright Tests`
-* `2. Run Selenium Tests (pytest)`
-* `3. Run k6 Load Test`
-
----
-
-## 3. Running Suites Individually via CLI
+## 2. Running Suites Individually via CLI
 
 ### Playwright (Web E2E)
 ```bash
