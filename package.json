@@ -8,5 +8,11 @@
     "test:selenium": "pytest -v --html=selenium-suite/report.html --self-contained-html",
     "test:k6": "k6 run k6-suite/tests/api_load_test.js",
     "test:all": "npm run test:playwright && npm run test:selenium && npm run test:k6"
+  },
+  "dependencies": {
+    "playwright": "^1.65.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
   }
 }
