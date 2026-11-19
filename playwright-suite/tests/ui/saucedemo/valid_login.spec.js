@@ -2,7 +2,7 @@ import { test, expect } from '../../../fixtures/saucedemo/homepage.js';
 import { LoginPage } from '../../../pages/saucedemo/loginpage.page.js';
 import { username, password } from '../../../test-data/saucedemo/users.js';
 
-test('opens the SauceDemo login page', async ({ sauceDemoPage }) => {
+test('Login into SauceDemo', async ({ sauceDemoPage }) => {
   const loginPage = new LoginPage(sauceDemoPage);
   const currentUrl = sauceDemoPage.url();
 

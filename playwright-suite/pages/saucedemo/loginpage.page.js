@@ -8,6 +8,8 @@ export class LoginPage {
     this.usernameInput = page.getByPlaceholder('Username');
     this.passwordInput = page.getByPlaceholder('Password');
     this.loginButton = page.getByRole('button', { name: 'Login' });
+
+    this.lockedValidation = page.locator('.error-message-container > h3' , {hasText: 'locked out'});
   }
 
   async login(username, password) {
@@ -19,5 +21,9 @@ export class LoginPage {
   async expectLoginSuccess(currentUrl) {
     await expect(this.page).not.toHaveURL(currentUrl);
     await expect(this.homePage.title).toBeVisible({ timeout: 10000 });
+  }
+
+  async expectLockedOut(){
+    await expect(this.lockedValidation).toBeVisible({ timeout: 10000 });
   }
 }
